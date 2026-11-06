@@ -138,6 +138,76 @@ This step demonstrates how to navigate the Linux filesystem using terminal comma
 
 ### *Step 2 - Create Directories*
 
+![Linux Directory Creation](img/Linux_Directory_Creation.png)
+
+In the Ubuntu Server VM, I begin creating a directory structure that I will use to practice Linux file management throughout the remaining steps of this lab.
+
+I first use the following command:
+
+```bash
+mkdir LinuxPractice
+```
+
+The `mkdir` command stands for **Make Directory** and is used to create new directories in Linux.
+
+In this case, the command creates a directory named `LinuxPractice` inside my current working directory, which is `/home/labadmin`.
+
+Next, I navigate into the newly created directory using:
+
+```bash
+cd LinuxPractice
+```
+
+The `cd` command stands for **Change Directory** and allows me to navigate between directories in the Linux filesystem.
+
+After running the command, my terminal prompt changes to:
+
+`labadmin@ubu-srv-01:~/LinuxPractice$`
+
+This confirms that I am now working inside the `LinuxPractice` directory. The `~` symbol represents my home directory, so the full path is `/home/labadmin/LinuxPractice`.
+
+Next, I create three additional directories using:
+
+```bash
+mkdir Documents Scripts Backups
+```
+
+The `mkdir` command can create multiple directories at once by specifying each directory name separated by a space.
+
+This command creates three directories inside `LinuxPractice`:
+
+- `Documents` — A directory for storing and practicing with text files.
+- `Scripts` — A directory that can be used to organize scripts and other files.
+- `Backups` — A directory for storing copies of files during future file management exercises.
+
+Finally, I verify that the directories were successfully created using:
+
+```bash
+ls
+```
+
+The `ls` command lists the contents of the current working directory.
+
+The output displays:
+
+```text
+Backups  Documents  Scripts
+```
+
+This confirms that all three directories were successfully created inside `LinuxPractice`.
+
+The resulting directory structure is:
+
+```text
+/home/labadmin/
+└── LinuxPractice/
+    ├── Backups/
+    ├── Documents/
+    └── Scripts/
+```
+
+This step demonstrates how to create directories using `mkdir`, navigate between directories using `cd`, and verify directory creation using `ls`. It also shows how multiple directories can be created using a single command.
+
 ## **Challenges**
 
 ## **What I Learned**
