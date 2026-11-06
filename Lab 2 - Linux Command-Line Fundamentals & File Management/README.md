@@ -136,6 +136,8 @@ This confirms that I successfully returned to my home directory.
 
 This step demonstrates how to navigate the Linux filesystem using terminal commands, identify hidden files, inspect directory contents, and understand the difference between user directories and system configuration directories.
 
+### *Step 2 - Create Directories*
+
 ## **Challenges**
 
 ## **What I Learned**
