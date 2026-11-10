@@ -208,6 +208,86 @@ The resulting directory structure is:
 
 This step demonstrates how to create directories using `mkdir`, navigate between directories using `cd`, and verify directory creation using `ls`. It also shows how multiple directories can be created using a single command.
 
+
+### *Step 3 - Create and View Files*
+
+![Linux File Creation](img/Linux_File_Creation.png)
+
+In the Ubuntu Server VM, I begin practicing how to create and manage files using Linux terminal commands. After creating the `LinuxPractice` directory structure in the previous step, I navigate into the `Documents` directory to begin working with text files.
+
+I first use the following command:
+
+```bash
+cd ~/LinuxPractice/Documents
+```
+
+The `cd` command allows me to change my current working directory. Instead of navigating through each directory individually, I specify the path to the `Documents` directory.
+
+The `~` symbol represents my home directory, `/home/labadmin`, allowing me to navigate directly to `/home/labadmin/LinuxPractice/Documents`.
+
+Next, I create two empty text files using:
+
+```bash
+touch notes.txt tasks.txt
+```
+
+The `touch` command is used to update a file's access and modification timestamps. If the specified file does not already exist, `touch` creates a new empty file.
+
+In this case, I use `touch` to create two files:
+
+- `notes.txt` — A text file that I will use to practice writing and reading file contents.
+- `tasks.txt` — An additional text file that I will use in future file management exercises.
+
+The `.txt` extension indicates that these files are intended to contain plain text. Unlike Windows, Linux does not require a file extension to identify or work with a file.
+
+I can also create multiple files using a single `touch` command by separating their filenames with spaces.
+
+Next, I write text into `notes.txt` using:
+
+```bash
+echo "Learning Linux file management" > notes.txt
+```
+
+The `echo` command displays text or variable values in the terminal. However, in this command, I use the output redirection operator (`>`) to send the text into a file instead of displaying it on the screen.
+
+The command consists of three parts:
+
+- `echo` — Produces the text specified after the command.
+- `"Learning Linux file management"` — The text that I want to write into the file.
+- `> notes.txt` — Redirects the output into the `notes.txt` file.
+
+The `>` operator creates the destination file if it does not exist or **overwrites its existing contents** if it already exists.
+
+This means that running another command using `> notes.txt` would replace the previous text rather than add to it.
+
+To add new text without overwriting the existing contents, I could instead use the append operator (`>>`):
+
+```bash
+echo "Practicing Linux commands" >> notes.txt
+```
+
+The `>>` operator appends the new text to the end of the file while preserving its existing contents.
+
+After writing text into `notes.txt`, I verify the file's contents using:
+
+```bash
+cat notes.txt
+```
+
+The `cat` command stands for **Concatenate** and is commonly used to display the contents of text files directly in the terminal.
+
+Although `cat` can also combine multiple files, I use it here to read the contents of a single file.
+
+The command returns:
+
+```text
+Learning Linux file management
+```
+
+This confirms that the text was successfully written into `notes.txt` using the `echo` command and output redirection.
+
+This step demonstrates how to create empty files using `touch`, write text into files using `echo` and output redirection, and display file contents using `cat`. It also introduces the difference between overwriting file contents with `>` and appending text with `>>`.
+
 ## **Challenges**
 
 ## **What I Learned**
