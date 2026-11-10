@@ -446,6 +446,137 @@ This step demonstrates how to copy individual files using `cp`, copy files betwe
 
 These operations are useful in Linux system administration when backing up files, duplicating directories, and preserving configurations before making changes.
 
+
+### *Step 5 - Move and Rename Files*
+
+![Linux File Rename and Move](img/Linux_File_Rename_and_Mpve.png)
+
+In the Ubuntu Server VM, I begin practicing how to move and rename files using Linux terminal commands. Moving and renaming files is an important system administration task because it allows administrators to organize directories, relocate files, and manage system resources without creating unnecessary copies.
+
+I first navigate to the `Documents` directory using:
+
+```bash
+cd ~/LinuxPractice/Documents
+```
+
+I then use the `ls` command to verify that the files created in the previous steps are still present.
+
+The output displays:
+
+```text
+notes.txt  notes_backup.txt  tasks.txt
+```
+
+Next, I rename the `tasks.txt` file using:
+
+```bash
+mv tasks.txt todo.txt
+```
+
+The `mv` command stands for **Move** and is used to move or rename files and directories in Linux.
+
+The basic syntax is:
+
+```bash
+mv source destination
+```
+
+The command consists of the following components:
+
+- `mv` — Executes the move or rename operation.
+- `tasks.txt` — The original filename.
+- `todo.txt` — The new filename.
+
+Because both filenames refer to the same directory, the command renames `tasks.txt` to `todo.txt` without moving it to another directory.
+
+Unlike the `cp` command introduced in Step 4, which creates a separate copy of a file, `mv` changes the file's name or location without intentionally creating an additional copy.
+
+To verify that the file was renamed successfully, I run:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+notes.txt  notes_backup.txt  todo.txt
+```
+
+This confirms that `tasks.txt` has been renamed to `todo.txt`, while the other files remain unchanged.
+
+Next, I move the renamed file from the `Documents` directory into the `Scripts` directory created in Step 2.
+
+I use the following command:
+
+```bash
+mv todo.txt ../Scripts/
+```
+
+This command uses a relative path to move the file into another directory.
+
+The command consists of:
+
+- `mv` — Moves the specified file.
+- `todo.txt` — The source file located in the current directory.
+- `..` — Represents the parent directory of the current working directory.
+- `../Scripts/` — Specifies the `Scripts` directory located inside the parent directory.
+
+Since I am currently working inside `/home/labadmin/LinuxPractice/Documents`, the `..` notation refers to `/home/labadmin/LinuxPractice`.
+
+Linux then uses the remaining path, `Scripts/`, to locate the destination directory.
+
+After moving the file, I use:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+notes.txt  notes_backup.txt
+```
+
+This confirms that `todo.txt` is no longer located inside the `Documents` directory.
+
+Finally, I verify that the file was successfully moved into the `Scripts` directory using:
+
+```bash
+ls ../Scripts
+```
+
+The output displays:
+
+```text
+todo.txt
+```
+
+This confirms that `todo.txt` was successfully moved from `Documents` into `Scripts`.
+
+The resulting directory structure is:
+
+```text
+LinuxPractice/
+├── Backups/
+│   └── notes.txt
+├── Documents/
+│   ├── notes.txt
+│   └── notes_backup.txt
+├── DocumentsBackup/
+│   ├── notes.txt
+│   ├── notes_backup.txt
+│   └── tasks.txt
+└── Scripts/
+    └── todo.txt
+```
+
+The `DocumentsBackup` directory still contains the original `tasks.txt` file because it was copied in Step 4 before the file was renamed and moved.
+
+This step demonstrates how to rename files using `mv`, move files between directories using relative paths, and verify file operations using `ls`.
+
+These skills are useful in Linux system administration when organizing files, relocating scripts, and managing system configurations.
+
 ## **Challenges**
 
 ## **What I Learned**
