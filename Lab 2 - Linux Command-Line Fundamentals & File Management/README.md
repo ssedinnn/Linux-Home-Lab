@@ -449,7 +449,7 @@ These operations are useful in Linux system administration when backing up files
 
 ### *Step 5 - Move and Rename Files*
 
-![Linux File Rename and Move](img/Linux_File_Rename_and_Mpve.png)
+![Linux File Rename and Move](img/Linux_File_Rename_and_Move.png)
 
 In the Ubuntu Server VM, I begin practicing how to move and rename files using Linux terminal commands. Moving and renaming files is an important system administration task because it allows administrators to organize directories, relocate files, and manage system resources without creating unnecessary copies.
 
