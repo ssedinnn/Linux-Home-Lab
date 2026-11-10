@@ -577,6 +577,111 @@ This step demonstrates how to rename files using `mv`, move files between direct
 
 These skills are useful in Linux system administration when organizing files, relocating scripts, and managing system configurations.
 
+
+### *Step 6 - Edit Files Using Nano*
+
+![Linux Nano Text Editor](img/Linux_Nano_Text_Editor.png)
+
+![Linux Nano File Verification](img/Linux_Nano_File_Verification.png)
+
+In the Ubuntu Server VM, I begin learning how to edit text files directly from the Linux terminal using Nano. Text editors are important in Linux system administration because many system settings, application configurations, and service configurations are stored in text-based files.
+
+For this step, I use the `notes.txt` file created in Step 3 and practice modifying its contents without creating a new file.
+
+I first navigate to the `Documents` directory using:
+
+```bash
+cd ~/LinuxPractice/Documents
+```
+
+Next, I open the existing text file using:
+
+```bash
+nano notes.txt
+```
+
+The `nano` command opens **GNU Nano**, a terminal-based text editor that allows users to create, view, and modify text files directly from the command-line interface.
+
+Unlike the `cat` command, which I previously used to display file contents, Nano allows me to interactively edit text using my keyboard.
+
+The command consists of:
+
+- `nano` — Launches the Nano text editor.
+- `notes.txt` — Specifies the file I want to open and edit.
+
+Because `notes.txt` already exists, Nano opens the file and displays its current contents.
+
+The file originally contains:
+
+```text
+Learning Linux file management
+```
+
+I then add several additional lines of text about my interests and experience learning Linux.
+
+The purpose of this exercise is to practice editing an existing file, so the text itself is not important to the functionality being tested.
+
+After entering the additional text, I save my changes using the following keyboard shortcuts:
+
+- **Ctrl + O (Write Out)** — Saves the current file to disk.
+- **Enter** — Confirms the filename when saving.
+- **Ctrl + X (Exit)** — Closes Nano and returns to the Linux terminal.
+
+In Nano, the `^` symbol displayed beside keyboard shortcuts represents the **Ctrl** key. For example, `^O` means Ctrl + O.
+
+Unlike the `echo` command with the `>` redirection operator, which replaces the contents of a file, Nano allows me to edit specific portions of an existing file while preserving the remaining text.
+
+After saving the file and exiting Nano, I verify that my changes were successfully written using:
+
+```bash
+cat notes.txt
+```
+
+The `cat` command displays the updated contents of `notes.txt`, including the original line and the additional text entered through Nano.
+
+This confirms that the changes were successfully saved and that the file can be read outside the text editor.
+
+Next, I verify that the backup created in Step 4 still contains the original text using:
+
+```bash
+cat notes_backup.txt
+```
+
+The command returns:
+
+```text
+Learning Linux file management
+```
+
+This confirms that `notes_backup.txt` was not affected by the changes made to `notes.txt`.
+
+Because the backup is a separate copy of the original file, modifying `notes.txt` does not automatically update `notes_backup.txt`.
+
+This demonstrates the importance of creating backup copies before modifying files, particularly when working with Linux system configurations.
+
+The resulting file structure remains:
+
+```text
+LinuxPractice/
+├── Backups/
+│   └── notes.txt
+├── Documents/
+│   ├── notes.txt
+│   └── notes_backup.txt
+├── DocumentsBackup/
+│   ├── notes.txt
+│   ├── notes_backup.txt
+│   └── tasks.txt
+└── Scripts/
+    └── todo.txt
+```
+
+The `notes.txt` file inside `Documents` now contains the updated text, while the backup copies retain their earlier contents.
+
+This step demonstrates how to open and edit text files using Nano, save changes using keyboard shortcuts, verify file modifications using `cat`, and confirm that backup files remain unchanged.
+
+These skills are useful in Linux system administration when editing configuration files, modifying scripts, documenting system changes, and preserving original files before making modifications.
+
 ## **Challenges**
 
 ## **What I Learned**
