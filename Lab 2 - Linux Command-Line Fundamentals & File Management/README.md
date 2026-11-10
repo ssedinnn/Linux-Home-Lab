@@ -288,6 +288,164 @@ This confirms that the text was successfully written into `notes.txt` using the 
 
 This step demonstrates how to create empty files using `touch`, write text into files using `echo` and output redirection, and display file contents using `cat`. It also introduces the difference between overwriting file contents with `>` and appending text with `>>`.
 
+
+### *Step 4 - Copy Files and Directories*
+
+![Linux File Copy](img/Linux_File_Copy.png)
+
+In the Ubuntu Server VM, I begin practicing how to copy files and directories using Linux terminal commands. Copying files is an important system administration task because it allows administrators to create backups, duplicate configuration files, and preserve important data before making changes.
+
+I first navigate to the `Documents` directory using:
+
+```bash
+cd ~/LinuxPractice/Documents
+```
+
+This places me inside the directory containing the `notes.txt` and `tasks.txt` files created in Step 3.
+
+Next, I create a copy of `notes.txt` using:
+
+```bash
+cp notes.txt notes_backup.txt
+```
+
+The `cp` command stands for **Copy** and is used to copy files and directories in Linux.
+
+The basic syntax is:
+
+```bash
+cp source destination
+```
+
+In this case:
+
+- `cp` — Executes the copy operation.
+- `notes.txt` — The original file being copied.
+- `notes_backup.txt` — The destination filename for the copied file.
+
+Unlike the `mv` command, which moves or renames files, `cp` preserves the original file while creating a separate copy.
+
+I then verify that the copy was created using:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+notes.txt  notes_backup.txt  tasks.txt
+```
+
+This confirms that the original file and its copy exist within the same directory.
+
+Next, I copy `notes.txt` into the `Backups` directory created in Step 2:
+
+```bash
+cp notes.txt ../Backups/
+```
+
+This command introduces the use of **relative paths** when copying files between directories.
+
+The command consists of the following components:
+
+- `cp` — Copies the specified file.
+- `notes.txt` — The source file located in my current directory.
+- `..` — Represents the parent directory of my current working directory.
+- `../Backups/` — Specifies the `Backups` directory located one level above `Documents`.
+
+Since I am currently working inside `/home/labadmin/LinuxPractice/Documents`, the `..` notation refers to `/home/labadmin/LinuxPractice`.
+
+Linux then uses the remaining path, `Backups/`, to locate the destination directory.
+
+To verify that the file was copied successfully, I run:
+
+```bash
+ls ../Backups
+```
+
+The output displays:
+
+```text
+notes.txt
+```
+
+This confirms that the file was successfully copied into the `Backups` directory.
+
+I also verify that the copied file contains the original text using:
+
+```bash
+cat ../Backups/notes.txt
+```
+
+The command returns:
+
+```text
+Learning Linux file management
+```
+
+This confirms that the contents of the original file were preserved during the copying process.
+
+Next, I return to the main `LinuxPractice` directory using:
+
+```bash
+cd ~/LinuxPractice
+```
+
+I then create a complete copy of the `Documents` directory using:
+
+```bash
+cp -r Documents DocumentsBackup
+```
+
+This command introduces the **recursive (`-r`) option**.
+
+By default, the `cp` command copies individual files. To copy an entire directory and its contents, I use the `-r` option.
+
+The command consists of:
+
+- `cp` — Executes the copy operation.
+- `-r` — Recursively copies the directory and everything inside it, including any subdirectories.
+- `Documents` — The source directory being copied.
+- `DocumentsBackup` — The destination directory that will contain the copied files.
+
+Because `DocumentsBackup` does not already exist, Linux creates it and copies the contents of `Documents` into it.
+
+Finally, I verify the copied directory using:
+
+```bash
+ls DocumentsBackup
+```
+
+The output displays:
+
+```text
+notes.txt  notes_backup.txt  tasks.txt
+```
+
+This confirms that the `Documents` directory and all three files were successfully copied into `DocumentsBackup`.
+
+The resulting directory structure is:
+
+```text
+LinuxPractice/
+├── Backups/
+│   └── notes.txt
+├── Documents/
+│   ├── notes.txt
+│   ├── notes_backup.txt
+│   └── tasks.txt
+├── DocumentsBackup/
+│   ├── notes.txt
+│   ├── notes_backup.txt
+│   └── tasks.txt
+└── Scripts/
+```
+
+This step demonstrates how to copy individual files using `cp`, copy files between directories using relative paths, verify copied file contents using `cat`, and recursively copy entire directories using `cp -r`.
+
+These operations are useful in Linux system administration when backing up files, duplicating directories, and preserving configurations before making changes.
+
 ## **Challenges**
 
 ## **What I Learned**
