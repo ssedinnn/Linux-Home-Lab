@@ -918,6 +918,239 @@ I also learned that `rmdir` cannot remove non-empty directories and that Linux d
 
 These skills are useful in Linux system administration when cleaning up temporary files, removing unused directories, managing storage, and safely maintaining the filesystem.
 
+
+### *Step 8 - Viewing and Analyzing File Contents*
+
+![Linux Head Tail and Word Count](img/Linux_Head_Tail_Word_Count.png)
+
+![Linux Less File Viewer](img/Linux_Less_File_Viewer.png)
+
+In the Ubuntu Server VM, I begin learning how to view and analyze the contents of text files using Linux terminal commands. These commands are important in Linux system administration because administrators frequently need to inspect configuration files, examine system logs, and troubleshoot issues without modifying the original files.
+
+For this step, I use the `notes.txt` file that I previously created in Step 3 and modified using Nano in Step 6.
+
+I first navigate to the `Documents` directory using:
+
+```bash
+cd ~/LinuxPractice/Documents
+```
+
+I then use the `ls` command to verify that `notes.txt` and `notes_backup.txt` are still present.
+
+Next, I practice displaying the beginning of a text file using:
+
+```bash
+head notes.txt
+```
+
+The `head` command displays the beginning of a file. By default, it displays the first 10 lines.
+
+The basic syntax is:
+
+```bash
+head filename
+```
+
+The command consists of:
+
+- `head` — Displays the beginning of a file.
+- `notes.txt` — Specifies the file being examined.
+
+Since my `notes.txt` file contains fewer than 10 lines, the command displays the entire file.
+
+Next, I practice limiting the number of lines displayed using:
+
+```bash
+head -n 3 notes.txt
+```
+
+This introduces the **number of lines (`-n`) option**.
+
+The command consists of:
+
+- `head` — Displays the beginning of a file.
+- `-n` — Specifies how many lines should be displayed.
+- `3` — Tells Linux to display the first three lines.
+- `notes.txt` — Specifies the file being examined.
+
+The output displays:
+
+```text
+Learning Linux file management
+This is my first time using nano to write into a file.
+I love JoJo's Bizarre Adventure, its a very good manga series.
+```
+
+This confirms that the `head -n 3` command successfully displays only the first three lines of the file.
+
+This command is useful when administrators need to quickly examine the beginning of large configuration files or logs without displaying their entire contents.
+
+Next, I practice displaying the end of a text file using:
+
+```bash
+tail notes.txt
+```
+
+The `tail` command displays the end of a file. By default, it displays the last 10 lines.
+
+The basic syntax is:
+
+```bash
+tail filename
+```
+
+The command consists of:
+
+- `tail` — Displays the end of a file.
+- `notes.txt` — Specifies the file being examined.
+
+Since my file contains fewer than 10 lines, the entire file is displayed.
+
+Next, I limit the output to the last three lines using:
+
+```bash
+tail -n 3 notes.txt
+```
+
+The command consists of:
+
+- `tail` — Displays the end of a file.
+- `-n 3` — Specifies that only the last three lines should be displayed.
+- `notes.txt` — Specifies the file being examined.
+
+The output displays the final three lines of my file, confirming that the command works as intended.
+
+The `tail` command is particularly useful in Linux system administration when examining recent log entries. Administrators can use it to quickly view the latest messages recorded by a system or application.
+
+Another useful option is `tail -f`, which continuously monitors a file and displays new data as it is appended. Although I did not practice this option during this step, it is commonly used when monitoring system logs in real time.
+
+Next, I practice viewing a text file using:
+
+```bash
+less notes.txt
+```
+
+The `less` command opens a file in a terminal-based viewer, allowing users to navigate through its contents without modifying the file.
+
+Unlike Nano, which I used in Step 6 to edit text files, `less` is primarily designed for viewing and navigating file contents.
+
+The basic syntax is:
+
+```bash
+less filename
+```
+
+The command consists of:
+
+- `less` — Opens the terminal-based file viewer.
+- `notes.txt` — Specifies the file being viewed.
+
+After executing the command, the contents of `notes.txt` appear inside the `less` interface.
+
+Because my file is relatively short, the entire contents fit on one screen.
+
+The `less` command also supports several keyboard shortcuts:
+
+- **Up / Down Arrow Keys** — Navigate through the file one line at a time.
+- **Space** — Move forward one screen.
+- **b** — Move backward one screen.
+- **g** — Jump to the beginning of the file.
+- **G** — Jump to the end of the file.
+- **/word** — Search for specific text within the file.
+- **q** — Exit the viewer and return to the terminal.
+
+This command is useful when administrators need to examine large log files, configuration files, or other text-based information without opening a text editor.
+
+After viewing the file, I exit the `less` interface and return to the terminal.
+
+Next, I practice analyzing the contents of a file using:
+
+```bash
+wc notes.txt
+```
+
+The `wc` command stands for **Word Count** and is used to count lines, words, and bytes within a file.
+
+The basic syntax is:
+
+```bash
+wc filename
+```
+
+The command consists of:
+
+- `wc` — Counts lines, words, and bytes.
+- `notes.txt` — Specifies the file being analyzed.
+
+The output displays:
+
+```text
+6 74 374 notes.txt
+```
+
+These values represent:
+
+- `6` — Number of lines in the file, counted by newline characters.
+- `74` — Number of words in the file.
+- `374` — Number of bytes in the file.
+- `notes.txt` — Name of the file being analyzed.
+
+Next, I practice displaying only the number of lines using:
+
+```bash
+wc -l notes.txt
+```
+
+The `-l` option counts newline characters within the file.
+
+The output displays:
+
+```text
+6 notes.txt
+```
+
+This confirms that my file contains six newline-terminated lines.
+
+Next, I practice counting only the words using:
+
+```bash
+wc -w notes.txt
+```
+
+The `-w` option tells Linux to count the number of words within the file.
+
+The output displays:
+
+```text
+74 notes.txt
+```
+
+This confirms that my file contains 74 words.
+
+Finally, I practice counting the number of characters using:
+
+```bash
+wc -m notes.txt
+```
+
+The `-m` option counts the number of characters within the file.
+
+The output displays:
+
+```text
+374 notes.txt
+```
+
+This confirms that my file contains 374 characters.
+
+Although the byte count and character count are identical in this example, they are not always the same. Certain characters, including some international characters and emojis, can require multiple bytes to represent a single character.
+
+This step demonstrates how to display the beginning of files using `head`, display the end of files using `tail`, navigate through files using `less`, and analyze file contents using `wc`.
+
+I also learned how command options such as `-n`, `-l`, `-w`, and `-m` can modify the behavior of these commands to display specific information.
+
+These skills are useful in Linux system administration when inspecting system logs, reviewing configuration files, troubleshooting errors, and analyzing text-based information without modifying the original files.
+
 ## **Challenges**
 
 ## **What I Learned**
