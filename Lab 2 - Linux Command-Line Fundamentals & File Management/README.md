@@ -17,6 +17,17 @@ Learn how to navigate the Linux filesystem and manage files and directories usin
 
 ## **Skills Demonstrated**
 
+- Navigated the Linux filesystem using terminal commands such as `pwd`, `ls`, and `cd`.
+- Created and organized directories and files using `mkdir` and `touch`.
+- Copied, moved, renamed, and deleted files and directories using `cp`, `mv`, `rm`, and `rmdir`.
+- Created backup copies of files and directories using `cp` and the recursive `-r` option.
+- Edited and saved text files using the GNU Nano text editor.
+- Viewed and analyzed file contents using `cat`, `head`, `tail`, `less`, and `wc`.
+- Examined file permissions and ownership using `ls -l`.
+- Modified file permissions using `chmod` with numerical and symbolic notation.
+- Changed file ownership using `chown` and administrative privileges with `sudo`.
+- Verified the current user account using `whoami`.
+
 ## **Steps**
 
 ### *Step 1 - Explore the Linux Filesystem*
@@ -1390,6 +1401,9 @@ This step demonstrates how to view and modify Linux file permissions using `ls -
 These skills are important in Linux system administration because correctly configured permissions and ownership help protect sensitive files, restrict unauthorized access, and ensure that users and applications have the appropriate level of access.
 
 ## **Challenges**
+
+- One of the initial challenges was becoming familiar with navigating the Linux filesystem through the command line rather than using a graphical file explorer. I had to understand how directories are organized and how relative and absolute paths work. Through practice, I became more comfortable using `cd` to navigate between directories, `pwd` to verify my current location, and `~` to reference my home directory.
+- Another learning challenge was understanding how Linux represents file permissions using numerical values and symbolic notation. Initially, I was unfamiliar with how values such as `600`, `644`, and `640` determine access for file owners, groups, and other users. By experimenting with `chmod` and verifying the results using `ls -l`, I gained a better understanding of how read, write, and execute permissions are assigned and modified.
 
 ## **What I Learned**
 
