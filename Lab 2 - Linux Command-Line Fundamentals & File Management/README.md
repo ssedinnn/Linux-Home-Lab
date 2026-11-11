@@ -682,6 +682,242 @@ This step demonstrates how to open and edit text files using Nano, save changes 
 
 These skills are useful in Linux system administration when editing configuration files, modifying scripts, documenting system changes, and preserving original files before making modifications.
 
+
+### *Step 7 - Delete Files and Directories*
+
+![Linux File and Directory Deletion](img/Linux_File_Directory_Deletion.png)
+
+In the Ubuntu Server VM, I begin learning how to delete files and directories using Linux terminal commands. File and directory deletion is an important system administration task because administrators frequently need to remove temporary files, clean up unused directories, and manage system storage.
+
+For this step, I create temporary practice files and directories so I can safely practice deletion commands without affecting the files created in previous steps.
+
+I first navigate to the `LinuxPractice` directory using:
+
+```bash
+cd ~/LinuxPractice
+```
+
+Next, I create a temporary directory named `DeletePractice` and navigate into it:
+
+```bash
+mkdir DeletePractice
+cd DeletePractice
+```
+
+I then create three temporary text files using:
+
+```bash
+touch test1.txt test2.txt test3.txt
+```
+
+To verify that the files were created successfully, I run:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+test1.txt  test2.txt  test3.txt
+```
+
+Next, I practice deleting an individual file using:
+
+```bash
+rm test1.txt
+```
+
+The `rm` command stands for **Remove** and is used to delete files from the Linux filesystem.
+
+The basic syntax is:
+
+```bash
+rm filename
+```
+
+The command consists of:
+
+- `rm` — Executes the removal operation.
+- `test1.txt` — Specifies the file being deleted.
+
+Unlike deleting a file through Windows File Explorer, the `rm` command normally removes the file without sending it to a Recycle Bin.
+
+This means that files removed using `rm` are not easily recoverable, making it important to verify the filename before executing the command.
+
+I then verify the deletion using:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+test2.txt  test3.txt
+```
+
+This confirms that `test1.txt` was successfully removed while the remaining files were unaffected.
+
+Next, I practice deleting a file with confirmation using:
+
+```bash
+rm -i test2.txt
+```
+
+This introduces the **interactive (`-i`) option**.
+
+The `-i` option instructs the `rm` command to request confirmation before deleting a file.
+
+The command consists of:
+
+- `rm` — Removes the specified file.
+- `-i` — Enables interactive confirmation before deletion.
+- `test2.txt` — Specifies the file being removed.
+
+After executing the command, Linux displays a confirmation prompt:
+
+```text
+rm: remove regular empty file 'test2.txt'?
+```
+
+I enter `y` and press Enter to confirm the deletion.
+
+I then run:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+test3.txt
+```
+
+This confirms that `test2.txt` was successfully deleted and that only `test3.txt` remains.
+
+Using `rm -i` provides an additional layer of protection by allowing administrators to confirm a deletion before it occurs.
+
+Next, I return to the main `LinuxPractice` directory using:
+
+```bash
+cd ~/LinuxPractice
+```
+
+I then create an empty directory named `EmptyFolder` using:
+
+```bash
+mkdir EmptyFolder
+```
+
+After verifying that the directory exists using `ls`, I remove it using:
+
+```bash
+rmdir EmptyFolder
+```
+
+The `rmdir` command stands for **Remove Directory** and is used to remove empty directories from the Linux filesystem.
+
+The basic syntax is:
+
+```bash
+rmdir directory_name
+```
+
+The command consists of:
+
+- `rmdir` — Removes an empty directory.
+- `EmptyFolder` — Specifies the directory being removed.
+
+Unlike `rm`, which can remove individual files, `rmdir` is specifically designed to remove directories that contain no files or subdirectories.
+
+I verify the deletion using:
+
+```bash
+ls
+```
+
+The output confirms that `EmptyFolder` no longer exists.
+
+Next, I test what happens when attempting to remove a directory that still contains files.
+
+Since `DeletePractice` still contains `test3.txt`, I run:
+
+```bash
+rmdir DeletePractice
+```
+
+Linux returns the following error:
+
+```text
+rmdir: failed to remove 'DeletePractice': Directory not empty
+```
+
+This error occurs because `rmdir` only removes empty directories.
+
+Since `DeletePractice` still contains a file, Linux prevents the directory from being removed using this command.
+
+This demonstrates an important distinction between removing empty directories and removing directories containing files.
+
+Finally, I practice recursively deleting a directory and its contents using:
+
+```bash
+rm -ri DeletePractice
+```
+
+This command combines the **recursive (`-r`)** and **interactive (`-i`)** options.
+
+The command consists of:
+
+- `rm` — Executes the removal operation.
+- `-r` — Recursively removes a directory and its contents, including files and subdirectories.
+- `-i` — Requests confirmation before each removal.
+- `DeletePractice` — Specifies the directory being removed.
+
+The `-r` option was previously introduced in Step 4 when copying directories using `cp -r`. In this step, I learn that the same option can be used with `rm` to recursively remove directories.
+
+After executing the command, Linux requests confirmation before descending into the directory, removing `test3.txt`, and removing the directory itself.
+
+I enter `y` and press Enter for each confirmation prompt.
+
+Once the operation is complete, I verify the deletion using:
+
+```bash
+ls
+```
+
+The output displays:
+
+```text
+Backups  Documents  DocumentsBackup  Scripts
+```
+
+This confirms that both `DeletePractice` and `EmptyFolder` were successfully removed while the original practice directories remain intact.
+
+The resulting directory structure is:
+
+```text
+LinuxPractice/
+├── Backups/
+│   └── notes.txt
+├── Documents/
+│   ├── notes.txt
+│   └── notes_backup.txt
+├── DocumentsBackup/
+│   ├── notes.txt
+│   ├── notes_backup.txt
+│   └── tasks.txt
+└── Scripts/
+    └── todo.txt
+```
+
+This step demonstrates how to delete individual files using `rm`, request confirmation using `rm -i`, remove empty directories using `rmdir`, and recursively delete directories using `rm -ri`.
+
+I also learned that `rmdir` cannot remove non-empty directories and that Linux deletion commands should be used carefully because removed files may not be recoverable.
+
+These skills are useful in Linux system administration when cleaning up temporary files, removing unused directories, managing storage, and safely maintaining the filesystem.
+
 ## **Challenges**
 
 ## **What I Learned**
