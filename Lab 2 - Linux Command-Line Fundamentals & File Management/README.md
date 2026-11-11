@@ -1151,6 +1151,246 @@ I also learned how command options such as `-n`, `-l`, `-w`, and `-m` can modify
 
 These skills are useful in Linux system administration when inspecting system logs, reviewing configuration files, troubleshooting errors, and analyzing text-based information without modifying the original files.
 
+
+### *Step 9 - Linux File Permissions and Ownership*
+
+![Linux File Permissions](img/Linux_File_Permissions.png)
+
+![Linux Chmod](img/Linux_Chmod.png)
+
+![Linux Chown](img/Linux_Chown.png)
+
+In the Ubuntu Server VM, I begin learning how Linux manages file permissions and ownership. File permissions are important in Linux system administration because they determine which users can read, modify, or execute files.
+
+For this step, I create a separate practice directory to experiment with permissions without affecting the files created in previous steps.
+
+I first navigate to my `LinuxPractice` directory and create a new folder called `PermissionsPractice` using:
+
+```bash
+cd ~/LinuxPractice
+mkdir PermissionsPractice
+cd PermissionsPractice
+```
+
+Next, I create an empty text file using:
+
+```bash
+touch permissions.txt
+```
+
+I then examine the file's permissions and ownership using:
+
+```bash
+ls -l
+```
+
+The `-l` option displays a detailed listing of files, including their permissions, ownership, size, and modification date.
+
+The output shows:
+
+```text
+-rw-rw-r-- 1 labadmin labadmin 0 Nov 11 06:58 permissions.txt
+```
+
+The first section, `-rw-rw-r--`, represents the file's permissions.
+
+Linux permissions are divided into three categories:
+
+- **Owner (User)** — The user who owns the file.
+- **Group** — Users who belong to the file's assigned group.
+- **Others** — All other users.
+
+Each category can have three types of permissions:
+
+- `r` — Read permission.
+- `w` — Write permission.
+- `x` — Execute permission.
+
+The initial permissions indicate that the owner and group can read and write the file, while other users can only read it.
+
+Next, I practice changing file permissions using:
+
+```bash
+chmod 600 permissions.txt
+ls -l permissions.txt
+```
+
+The `chmod` command stands for **Change Mode** and is used to modify file and directory permissions.
+
+Linux can represent permissions using numerical values:
+
+- `4` — Read permission.
+- `2` — Write permission.
+- `1` — Execute permission.
+- `0` — No permissions.
+
+These values can be added together to create different permission combinations.
+
+For example, `600` means:
+
+- `6` — Owner has read and write permissions (4 + 2).
+- `0` — Group has no permissions.
+- `0` — Others have no permissions.
+
+The output changes to:
+
+```text
+-rw-------
+```
+
+This confirms that only the file owner has permission to read and modify the file.
+
+Next, I change the permissions again using:
+
+```bash
+chmod 644 permissions.txt
+ls -l permissions.txt
+```
+
+The `644` permission setting means:
+
+- `6` — Owner can read and write.
+- `4` — Group can read.
+- `4` — Others can read.
+
+The output displays:
+
+```text
+-rw-r--r--
+```
+
+This confirms that the owner has read and write permissions, while the group and others have read-only access.
+
+Next, I practice changing permissions using symbolic notation instead of numerical values.
+
+I execute:
+
+```bash
+chmod u+x permissions.txt
+ls -l permissions.txt
+```
+
+The command consists of:
+
+- `chmod` — Changes file permissions.
+- `u` — Represents the file owner.
+- `+` — Adds a permission.
+- `x` — Represents execute permission.
+- `permissions.txt` — Specifies the file being modified.
+
+The output displays:
+
+```text
+-rwxr--r--
+```
+
+This confirms that execute permission has been added for the file owner.
+
+I also notice that the filename changes to green in the terminal, indicating that the file now has executable permissions.
+
+Next, I remove the execute permission using:
+
+```bash
+chmod u-x permissions.txt
+ls -l permissions.txt
+```
+
+The `-` symbol removes the specified permission.
+
+The output returns to:
+
+```text
+-rw-r--r--
+```
+
+This confirms that execute permission was successfully removed.
+
+Next, I begin learning about Linux file ownership.
+
+I first check the file's current ownership using:
+
+```bash
+ls -l permissions.txt
+```
+
+The output shows that the file belongs to the user `labadmin` and the group `labadmin`.
+
+I then change the file's owner to `root` using:
+
+```bash
+sudo chown root permissions.txt
+ls -l permissions.txt
+```
+
+This introduces two important Linux commands:
+
+- `sudo` — Executes a command with elevated privileges, typically as the root user.
+- `chown` — Stands for **Change Owner** and is used to change the ownership of files and directories.
+
+The `root` account is the superuser account in Linux and has administrative privileges.
+
+After executing the command, I am prompted to enter my password to authorize the operation.
+
+The output shows:
+
+```text
+-rw-r--r-- 1 root labadmin 0 Nov 11 06:58 permissions.txt
+```
+
+This confirms that the file's owner has changed from `labadmin` to `root`, while the assigned group remains `labadmin`.
+
+Next, I restore ownership to my original user account using:
+
+```bash
+sudo chown labadmin permissions.txt
+ls -l permissions.txt
+```
+
+The output confirms that `labadmin` is once again the owner of the file.
+
+Next, I perform a final permissions test using:
+
+```bash
+chmod 640 permissions.txt
+ls -l permissions.txt
+```
+
+The `640` permission setting means:
+
+- `6` — Owner has read and write permissions.
+- `4` — Group has read-only permission.
+- `0` — Others have no permissions.
+
+The output displays:
+
+```text
+-rw-r-----
+```
+
+This confirms that the file permissions have been successfully updated.
+
+Finally, I verify which user account I am currently logged into using:
+
+```bash
+whoami
+```
+
+The `whoami` command displays the username associated with the current effective user identity.
+
+The output displays:
+
+```text
+labadmin
+```
+
+This confirms that I am operating under my regular `labadmin` account.
+
+This step demonstrates how to view and modify Linux file permissions using `ls -l` and `chmod`, change file ownership using `chown`, and execute administrative commands using `sudo`.
+
+I also learned how Linux separates permissions between file owners, groups, and other users, and how numerical and symbolic notation can be used to control access.
+
+These skills are important in Linux system administration because correctly configured permissions and ownership help protect sensitive files, restrict unauthorized access, and ensure that users and applications have the appropriate level of access.
+
 ## **Challenges**
 
 ## **What I Learned**
