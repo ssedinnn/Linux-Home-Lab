@@ -1407,4 +1407,8 @@ These skills are important in Linux system administration because correctly conf
 
 ## **What I Learned**
 
+Throughout this lab, I gained a better understanding of navigating the Linux filesystem and managing files through the command line. I learned how to create, organize, copy, move, rename, and delete files and directories without relying on a graphical interface. I also became more comfortable using commands to inspect file contents, edit text files with Nano, and create backups. One of my biggest takeaways was understanding how Linux manages file permissions and ownership. By practicing with `chmod` and `chown`, I learned how read, write, and execute permissions control access for file owners, groups, and other users. I also gained experience using `sudo` to perform administrative tasks and learned the importance of assigning appropriate permissions to protect files from unauthorized access.
+
 ## **Next Steps**
+
+In Lab 03, I plan to focus on Linux user and group management to gain a better understanding of how administrators manage accounts and control access to system resources. This will include creating user accounts with `adduser`, managing passwords with `passwd`, viewing account information with `id`, and creating and managing groups using `groupadd` and `usermod`. I also plan to practice switching between user accounts using `su`, managing administrative privileges with `sudo`, and disabling or removing accounts when they are no longer needed. These exercises will help me understand how Linux handles user administration and access control, building on the file permissions and ownership concepts introduced in this lab.
