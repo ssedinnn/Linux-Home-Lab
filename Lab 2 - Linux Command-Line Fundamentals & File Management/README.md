@@ -1387,8 +1387,6 @@ This confirms that I am operating under my regular `labadmin` account.
 
 This step demonstrates how to view and modify Linux file permissions using `ls -l` and `chmod`, change file ownership using `chown`, and execute administrative commands using `sudo`.
 
-I also learned how Linux separates permissions between file owners, groups, and other users, and how numerical and symbolic notation can be used to control access.
-
 These skills are important in Linux system administration because correctly configured permissions and ownership help protect sensitive files, restrict unauthorized access, and ensure that users and applications have the appropriate level of access.
 
 ## **Challenges**
