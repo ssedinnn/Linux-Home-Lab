@@ -1,3 +1,4 @@
+
 # Linux Home Lab
 
 A collection of hands-on Linux home lab projects focused on Ubuntu Server, Linux system administration, command-line operations, networking, security, user management, automation, and IT troubleshooting.
@@ -10,7 +11,7 @@ I built this Linux home lab to gain hands-on experience with Linux operating sys
 
 Using Ubuntu Server and Oracle VirtualBox, I have started building a Linux environment to practice server installation, system configuration, command-line administration, networking, and troubleshooting.
 
-As I continue expanding this environment, I plan to explore Linux file management, user and group administration, file permissions, SSH remote access, system services, Bash scripting, and automation.
+As I continue expanding this environment, I plan to explore Linux user and group administration, SSH remote access, system services, Bash scripting, and automation.
 
 Each lab includes step-by-step documentation, screenshots, challenges encountered, troubleshooting performed, and key concepts learned.
 
@@ -41,6 +42,15 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Linux Package Management with APT
 - System Package Updates & Upgrades
 - Administrative Commands with `sudo`
+- Linux Filesystem Navigation
+- File & Directory Creation
+- File Copying, Moving & Renaming
+- File & Directory Deletion
+- Text File Editing with GNU Nano
+- File Content Viewing & Inspection
+- File Ownership & Permission Fundamentals
+- Linux File Permission Management with `chmod`
+- File Ownership Management with `chown`
 - Virtual Machine Snapshot Management
 - Technical Documentation
 
@@ -53,6 +63,15 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Installed OpenSSH Server to prepare the environment for future remote administration exercises.
 - Verified the Ubuntu Server installation through the command-line interface and performed system package updates using APT.
 - Created a VirtualBox snapshot to establish a recovery point before beginning future Linux administration labs.
+
+### Lab 02 – Linux File Management and Navigation
+
+- Practiced navigating the Linux filesystem using commands such as `pwd`, `ls`, and `cd` to locate directories and inspect their contents.
+- Created and organized directories and text files using `mkdir`, `touch`, and `echo` to practice basic filesystem management.
+- Copied, renamed, and moved files and directories using `cp` and `mv`, including creating backup copies of existing files.
+- Edited text files using GNU Nano and inspected file contents using `cat`, `less`, `head`, `tail`, and `wc`.
+- Practiced removing files and directories using `rm` and `rmdir`, including interactive deletion and recursive removal.
+- Examined and modified Linux file permissions using `ls -l` and `chmod`, and practiced changing file ownership using `chown`.
 
 ## Repository Goals
 
@@ -74,10 +93,8 @@ The purpose of this repository is to:
 
 I plan to continue expanding the environment with projects focused on:
 
-- Linux Command-Line Fundamentals
-- Linux Filesystem Navigation & File Management
 - Linux User & Group Administration
-- Linux File Ownership & Permissions
+- Advanced Linux File Ownership & Permissions
 - Linux Package Management
 - Linux Networking & Troubleshooting
 - SSH Remote Administration
