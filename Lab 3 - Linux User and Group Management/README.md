@@ -192,6 +192,82 @@ The output displayed the updated account description, confirming that the modifi
 
 This exercise helped me understand how Linux administrators manage user passwords, enforce password changes, and modify existing user accounts without deleting or recreating them.
 
+
+### *Step 4 - Creating and Managing Linux Groups*
+
+![Creating Group and Adding User](img/Creating_Group_And_Adding_User.png)
+
+![Removing User From Group](img/Removing_User_From_Group.png)
+
+![Verifying Group Membership](img/Verifying_Group_Membership.png)
+
+In this step, I practiced managing Linux groups by creating a new security group, adding and removing users, and verifying group memberships. Groups allow Linux administrators to organize users and manage access permissions without assigning permissions individually to each account.
+
+I first created a new group called `itsupport` using:
+
+```bash
+sudo groupadd itsupport
+```
+
+The `groupadd` command creates a new Linux group. I then verified that the group was successfully created using:
+
+```bash
+getent group itsupport
+```
+
+The output displayed `itsupport:x:1002:`, confirming that the group existed and had been assigned a unique Group ID (GID).
+
+Next, I added my existing `testuser` account to the group using:
+
+```bash
+sudo usermod -aG itsupport testuser
+```
+
+The `usermod` command modifies an existing user account. The `-aG` options append the user to a supplementary group without removing their existing group memberships.
+
+To verify the change, I ran:
+
+```bash
+groups testuser
+id testuser
+```
+
+Both commands confirmed that `testuser` belonged to the `itsupport` group alongside its existing groups.
+
+Next, I practiced removing the user from the group using:
+
+```bash
+sudo gpasswd -d testuser itsupport
+```
+
+The `gpasswd` command manages Linux group memberships, while the `-d` option removes the specified user from a group.
+
+I verified the removal using:
+
+```bash
+groups testuser
+```
+
+The output no longer displayed `itsupport`, confirming that the user had been successfully removed while retaining their other group memberships.
+
+Finally, I added `testuser` back to the group using:
+
+```bash
+sudo usermod -aG itsupport testuser
+```
+
+I then verified the final group membership using:
+
+```bash
+id testuser
+groups testuser
+getent group itsupport
+```
+
+The results confirmed that `testuser` was once again a member of `itsupport`, with the group displaying `testuser` in its membership list.
+
+This exercise helped me understand how Linux administrators create and manage groups, assign users to supplementary groups, and verify membership changes. It also reinforced how group-based administration simplifies user management and supports access control in multi-user environments.
+
 ## **Challenges**
 
 ## **What I Learned**
