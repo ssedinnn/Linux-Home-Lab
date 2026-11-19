@@ -106,6 +106,92 @@ When initially running `sudo adduser testuser`, I entered my administrator passw
 
 This step helped me understand how Linux administrators create user accounts, assign passwords, verify account information, and examine group memberships and home directory ownership.
 
+
+### *Step 3 - Modifying User Accounts and Passwords*
+
+![Resetting and Expiring User Password](img/Resetting_User_Password.png)
+
+![Testing Password Change](img/Testing_Password_Change.png)
+
+![Modifying User Account Information](img/Modifying_User_Account.png)
+
+In this step, I practiced modifying an existing Linux user account by resetting its password, requiring a password change at the next login, and updating the account's information. These are common administrative tasks performed by IT support technicians when managing employee accounts.
+
+I first reset the password for the `testuser` account using:
+
+```bash
+sudo passwd testuser
+```
+
+The `passwd` command allows administrators to change a user's password. By using `sudo`, I was able to reset the password for another account without knowing its previous password.
+
+After successfully resetting the password, I configured the account to require a password change at the next login:
+
+```bash
+sudo passwd -e testuser
+```
+
+The `-e` option immediately expires the user's password, requiring them to create a new one when they next log in.
+
+To verify the password status, I ran:
+
+```bash
+sudo passwd -S testuser
+sudo chage -l testuser
+```
+
+- `passwd -S` displays the user's password status and aging information.
+- `chage` manages password expiration and aging settings.
+- `-l` lists the account's current password aging information.
+
+The output confirmed that the password had expired and needed to be changed.
+
+Next, I tested the password expiration by switching to the `testuser` account:
+
+```bash
+su - testuser
+```
+
+The `su` command allows me to switch between Linux user accounts. The `-` option starts a login session using the target user's environment.
+
+After entering the temporary password, Ubuntu required me to change it immediately. I entered the current password and created a new one.
+
+Once logged in, I verified the active account using:
+
+```bash
+whoami
+```
+
+The output returned `testuser`, confirming that I had successfully switched accounts.
+
+I then returned to my administrator account using:
+
+```bash
+exit
+```
+
+The `exit` command closes the current shell session and returns to the previous account.
+
+Finally, I modified the account description using:
+
+```bash
+sudo usermod -c "IT Support Test Account" testuser
+```
+
+- `usermod` modifies an existing Linux user account.
+- `-c` changes the account's comment field, which can store a name or description.
+- `"IT Support Test Account"` is the new account description.
+
+To verify the modification, I ran:
+
+```bash
+getent passwd testuser
+```
+
+The output displayed the updated account description, confirming that the modification was successful.
+
+This exercise helped me understand how Linux administrators manage user passwords, enforce password changes, and modify existing user accounts without deleting or recreating them.
+
 ## **Challenges**
 
 ## **What I Learned**
