@@ -268,6 +268,61 @@ The results confirmed that `testuser` was once again a member of `itsupport`, wi
 
 This exercise helped me understand how Linux administrators create and manage groups, assign users to supplementary groups, and verify membership changes. It also reinforced how group-based administration simplifies user management and supports access control in multi-user environments.
 
+
+### *Step 5 - Locking and Unlocking User Accounts*
+
+![Locking User Password](img/Locking_User_Password.png)
+
+![Testing Locked User Account](img/Testing_Locked_User_Account.png)
+
+![Unlocking User Password](img/Unlocking_User_Password.png)
+
+![Testing Unlocked User Account](img/Testing_Unlocked_User_Account.png)
+
+In this step, I practiced locking and unlocking Linux user passwords to understand how administrators can temporarily restrict password-based authentication without deleting an account.
+
+I first checked the current password status of `testuser` using:
+
+```bash
+sudo passwd -S testuser
+```
+
+The output displayed `P`, indicating that the account had a usable password. I then locked the password using:
+
+```bash
+sudo passwd -l testuser
+```
+
+After running `sudo passwd -S testuser` again, the status changed from `P` to `L`, confirming that the password was successfully locked.
+
+Next, I attempted to switch to the locked account using:
+
+```bash
+su - testuser
+```
+
+After entering the user's password, Linux returned an **Authentication failure** message. This confirmed that the locked password could no longer be used to authenticate.
+
+I then unlocked the password using:
+
+```bash
+sudo passwd -u testuser
+```
+
+I checked the password status again and confirmed that it returned to `P`, indicating that the password was unlocked.
+
+Finally, I tested the account by running:
+
+```bash
+su - testuser
+whoami
+exit
+```
+
+This time, I successfully logged into `testuser`. The `whoami` command confirmed that I was operating under the correct account, and `exit` allowed me to return to my administrator session.
+
+This exercise demonstrated how Linux administrators can temporarily restrict and restore password-based access. I also learned that locking a password does not necessarily disable every authentication method associated with an account.
+
 ## **Challenges**
 
 ## **What I Learned**
