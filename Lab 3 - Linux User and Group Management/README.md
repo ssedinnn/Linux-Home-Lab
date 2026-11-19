@@ -51,7 +51,7 @@ This step helped me understand how Linux identifies user accounts and organizes 
 
 ### Step 2 – Creating a New Linux User Account
 
-![Creating and Verifying a New Linux User](img/Creating_and_Verifying_New_User.png)
+![Creating and Verifying a New Linux User](img/Creating_and_Verifying_a_New_User.png)
 
 In this step, I practiced creating a new Linux user account and verifying its information. User account creation is a common administrative task when setting up access for new employees or managing accounts on a Linux server.
 
