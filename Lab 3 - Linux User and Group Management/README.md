@@ -48,6 +48,64 @@ The `getent group sudo` command confirmed that `labadmin` is a member of the `su
 
 This step helped me understand how Linux identifies user accounts and organizes permissions through group memberships. It also introduced me to the difference between a user's primary group and supplementary groups, which will be important when creating and managing additional accounts.
 
+
+### Step 2 – Creating a New Linux User Account
+
+![Creating and Verifying a New Linux User](img/Creating_and_Verifying_New_User.png)
+
+In this step, I practiced creating a new Linux user account and verifying its information. User account creation is a common administrative task when setting up access for new employees or managing accounts on a Linux server.
+
+First, I created a new user named `testuser` using the following command:
+
+```bash
+sudo adduser testuser
+```
+
+- **`sudo`** – Executes the command with administrative privileges.
+- **`adduser`** – Creates a new Linux user account and automatically sets up its home directory and primary group.
+- **`testuser`** – The username assigned to the new account.
+
+After running the command, I was prompted to create and confirm a password for the new user. I left the optional personal information fields blank and confirmed the account creation.
+
+Next, I verified that the account was successfully created:
+
+```bash
+getent passwd testuser
+```
+
+This command retrieves the account information for `testuser`, including its UID, GID, home directory, and default login shell.
+
+The output confirmed that `testuser` was assigned a UID and primary GID of `1001`, a home directory of `/home/testuser`, and `/bin/bash` as its default shell.
+
+I then examined the new user's group memberships:
+
+```bash
+id testuser
+groups testuser
+```
+
+- **`id testuser`** – Displays the user's UID, primary GID, and supplementary group memberships.
+- **`groups testuser`** – Lists the groups that the user belongs to.
+
+The results showed that `testuser` belongs to its primary group, `testuser`, and the supplementary `users` group. Unlike my `labadmin` account, the new user was not assigned to the `sudo` group, meaning it does not have administrative privileges through the default sudo group configuration.
+
+Finally, I verified that the user's home directory was created:
+
+```bash
+ls -ld /home/testuser
+```
+
+- **`ls -l`** – Displays detailed information about files and directories, including permissions and ownership.
+- **`-d`** – Displays information about the directory itself rather than listing its contents.
+
+The output confirmed that `/home/testuser` was successfully created and that both its owner and group were assigned to `testuser`.
+
+**Challenge Encountered:**
+
+When initially running `sudo adduser testuser`, I entered my administrator password incorrectly, resulting in an authentication failure. I retried the command, entered the correct password, and successfully created the account.
+
+This step helped me understand how Linux administrators create user accounts, assign passwords, verify account information, and examine group memberships and home directory ownership.
+
 ## **Challenges**
 
 ## **What I Learned**
