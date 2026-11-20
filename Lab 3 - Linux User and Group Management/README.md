@@ -323,6 +323,44 @@ This time, I successfully logged into `testuser`. The `whoami` command confirmed
 
 This exercise demonstrated how Linux administrators can temporarily restrict and restore password-based access. I also learned that locking a password does not necessarily disable every authentication method associated with an account.
 
+
+### *Step 6 - Deleting Linux User Accounts*
+
+![Deleting User Account](img/Deleting_User_Account.png)
+
+![Recreating User Account](img/Recreating_User_Account.png)
+
+![Removing User and Home Directory](img/Removing_User_Home_Directory.png)
+
+In this step, I practiced deleting Linux user accounts and managing their home directories. I started by verifying that `testuser` existed using `getent passwd testuser` and checking its home directory with `ls -ld /home/testuser`.
+
+I then deleted the account using:
+
+```bash
+sudo deluser testuser
+```
+
+After deleting the account, I ran `getent passwd testuser` again and confirmed that the account no longer existed. However, the `/home/testuser` directory was still present. This demonstrated how Linux administrators can remove user accounts while preserving their files.
+
+Next, I renamed the existing home directory to create a backup before recreating the account:
+
+```bash
+sudo mv /home/testuser /home/testuser-backup
+sudo adduser testuser
+```
+
+I verified that the newly created account had its own home directory using `getent passwd testuser` and `ls -ld /home/testuser`.
+
+Finally, I practiced deleting both the user account and its home directory using:
+
+```bash
+sudo deluser --remove-home testuser
+```
+
+I confirmed that the account was removed and that `/home/testuser` no longer existed. I also verified that `/home/testuser-backup` was still available.
+
+This step helped me understand the difference between deleting a Linux user account and removing its associated files. Preserving user data before account deletion is an important consideration when handling employee offboarding and IT administration tasks.
+
 ## **Challenges**
 
 ## **What I Learned**
