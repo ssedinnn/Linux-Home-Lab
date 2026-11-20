@@ -361,6 +361,37 @@ I confirmed that the account was removed and that `/home/testuser` no longer exi
 
 This step helped me understand the difference between deleting a Linux user account and removing its associated files. Preserving user data before account deletion is an important consideration when handling employee offboarding and IT administration tasks.
 
+
+### *Step 7 - Managing Administrative Privileges with sudo*
+
+![Testing Standard User Permissions](img/Testing_Standard_User_Permissions.png)
+
+![Granting Administrative Privileges](img/Granting_Administrative_Privileges.png)
+
+![Removing Administrative Privileges](img/Removing_Administrative_Privileges.png)
+
+In this step, I practiced granting and removing administrative privileges for Linux users using the `sudo` group. I started by recreating the `testuser` account with `sudo adduser testuser` and verifying its group memberships using `id testuser` and `groups testuser`.
+
+I then switched to the account using `su - testuser` and attempted to execute `sudo apt update`. The command was denied because the account did not have administrative privileges, demonstrating how Linux restricts standard users from performing administrative tasks.
+
+Next, I returned to my administrator account and granted `testuser` administrative privileges using:
+
+```bash
+sudo usermod -aG sudo testuser
+```
+
+I verified that the account belonged to the `sudo` group using `groups testuser` and `id testuser`. After switching back to `testuser`, I executed `sudo whoami`, which returned `root`, confirming that the account could run commands with elevated privileges. I also successfully executed `sudo apt update` to verify administrative access.
+
+Finally, I removed the account's administrative privileges using:
+
+```bash
+sudo gpasswd -d testuser sudo
+```
+
+I confirmed that `testuser` was no longer a member of the `sudo` group and attempted to execute `sudo whoami` again. The command was denied, verifying that administrative access had been revoked.
+
+This step helped me understand how Linux administrators manage elevated permissions, restrict unauthorized administrative access, and apply the principle of least privilege.
+
 ## **Challenges**
 
 ## **What I Learned**
