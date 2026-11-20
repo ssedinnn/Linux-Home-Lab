@@ -392,6 +392,35 @@ I confirmed that `testuser` was no longer a member of the `sudo` group and attem
 
 This step helped me understand how Linux administrators manage elevated permissions, restrict unauthorized administrative access, and apply the principle of least privilege.
 
+
+### *Step 8 - Locking and Unlocking User Accounts*
+
+![Locking and Unlocking User Account](img/Locking_Unlocking_User_Account.png)
+
+![Final User Account Verification](img/Final_User_Account_Verification.png)
+
+In this step, I practiced locking and unlocking Linux user accounts to temporarily restrict password-based access without deleting the account. I started by verifying that `testuser` existed using `getent passwd testuser` and checking its password status with `sudo passwd -S testuser`.
+
+I then locked the account's password using:
+
+```bash
+sudo passwd -l testuser
+```
+
+After locking the password, I verified that its status changed from `P` (usable password) to `L` (locked password). I attempted to log in using `su - testuser`, but received an authentication failure, confirming that password authentication was restricted.
+
+Next, I unlocked the account's password using:
+
+```bash
+sudo passwd -u testuser
+```
+
+I confirmed that the password status returned to `P` and successfully logged into `testuser` using `su - testuser`. I also executed `whoami`, which returned `testuser`, verifying that password authentication had been restored.
+
+Finally, I verified the account's information and group memberships using `getent passwd testuser`, `sudo passwd -S testuser`, and `groups testuser`. The results confirmed that the account remained active with a usable password and standard user permissions.
+
+This step helped me understand how Linux administrators can temporarily restrict and restore password authentication without deleting user accounts, which is useful for account security and IT support.
+
 ## **Challenges**
 
 ## **What I Learned**
