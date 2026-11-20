@@ -12,8 +12,13 @@ Learn how to navigate the Linux filesystem and manage files and directories usin
 - **Virtual Machine:** Ubuntu Server #1
 - **Server Hostname:** `ubu-srv-01`
 - **Administrator Account:** `labadmin`
+- **Test User Account:** `testuser`
 - **Network Configuration:** NAT (Network Address Translation)
 - **Remote Administration:** OpenSSH Server
+- **Command-Line Interface:** Linux Terminal (Bash)
+- **User and Group Management:** `adduser`, `deluser`, `usermod`, `groupadd`, `gpasswd`
+- **Password Management:** `passwd`, `chage`
+- **Permissions Management:** `sudo`, `chown`, `ls`
 
 ## **Skills Demonstrated**
 
