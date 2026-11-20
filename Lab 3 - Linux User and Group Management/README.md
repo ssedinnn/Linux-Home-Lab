@@ -2,9 +2,26 @@
 
 ## **Objective**
 
+Learn how to manage Linux user accounts and groups in Ubuntu Server by creating, modifying, securing, and deleting accounts. Practice password management, group memberships, administrative privileges, and account access controls commonly used in IT support and Linux system administration.
+
 ## **Environment**
 
 ## **Skills Demonstrated**
+
+- Linux User Account Creation & Management
+- User Account Information Verification
+- Linux Password Management & Resets
+- Password Expiration & Forced Password Changes
+- Linux User & Group Administration
+- Group Membership Assignment & Removal
+- User Account Modification
+- Linux Home Directory Management
+- User Account Deletion & Data Preservation
+- Administrative Privilege Management with sudo
+- Linux Account Locking & Unlocking
+- User Authentication & Access Verification
+- Linux Command-Line Administration
+- Basic Linux Security & Access Control
 
 ## **Steps**
 
@@ -423,7 +440,24 @@ This step helped me understand how Linux administrators can temporarily restrict
 
 ## **Challenges**
 
+- Encountered incorrect sudo password attempts while performing administrative tasks.
+- Managed existing home directories when recreating previously deleted user accounts.
+- Verified account permissions and group memberships after making administrative changes.
+- Tested restricted account access to confirm that security changes were applied correctly.
+
 ## **What I Learned**
+
+- How to create, modify, and delete Linux user accounts.
+- How to manage passwords, expiration settings, and account access.
+- How to create groups and manage user memberships.
+- How to grant and remove administrative privileges using sudo.
+- How to manage home directories and preserve user data.
+- How to lock and unlock account passwords to restrict access.
 
 ## **Next Steps**
 
+- Practice advanced Linux file ownership and permissions.
+- Configure shared directories with group-based access.
+- Explore SSH remote administration and authentication.
+- Learn Linux package and service management.
+- Continue developing Linux troubleshooting and security skills.
