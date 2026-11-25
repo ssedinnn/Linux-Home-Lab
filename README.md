@@ -1,4 +1,3 @@
-
 # Linux Home Lab
 
 A collection of hands-on Linux home lab projects focused on Ubuntu Server, Linux system administration, command-line operations, networking, security, user management, automation, and IT troubleshooting.
@@ -9,9 +8,9 @@ This repository documents my continued development of practical Linux administra
 
 I built this Linux home lab to gain hands-on experience with Linux operating systems and administrative tasks commonly encountered in IT support and system administration environments.
 
-Using Ubuntu Server and Oracle VirtualBox, I have started building a Linux environment to practice server installation, system configuration, command-line administration, networking, and troubleshooting.
+Using Ubuntu Server and Oracle VirtualBox, I have started building a Linux environment to practice server installation, system configuration, command-line administration, file management, user and group administration, networking, and troubleshooting.
 
-As I continue expanding this environment, I plan to explore Linux user and group administration, SSH remote access, system services, Bash scripting, and automation.
+As I continue expanding this environment, I plan to explore advanced Linux permissions, group-based access control, SSH remote access, system services, Bash scripting, and automation.
 
 Each lab includes step-by-step documentation, screenshots, challenges encountered, troubleshooting performed, and key concepts learned.
 
@@ -24,6 +23,9 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - **Network Configuration:** NAT (Network Address Translation)
 - **Remote Administration:** OpenSSH Server
 - **Command-Line & Administration Tools:** Linux Terminal, Bash, APT, `sudo`, `hostname`, `ip`, `ping`
+- **File & Permission Management:** `chmod`, `chown`, `ls`
+- **User & Group Management:** `adduser`, `deluser`, `usermod`, `groupadd`, `gpasswd`, `id`, `groups`, `getent`
+- **Password & Account Security:** `passwd`, `chage`
 
 ## Skills Demonstrated
 
@@ -51,6 +53,19 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - File Ownership & Permission Fundamentals
 - Linux File Permission Management with `chmod`
 - File Ownership Management with `chown`
+- Linux User Account Creation & Management
+- Linux User Account Modification & Deletion
+- Linux Password Management & Resets
+- Password Expiration & Forced Password Changes
+- Linux Group Creation & Administration
+- Group Membership Assignment & Removal
+- User & Group Identity Verification
+- Linux Home Directory Management
+- User Data Preservation During Account Deletion
+- Administrative Privilege Assignment & Removal
+- Linux Account Password Locking & Unlocking
+- User Authentication & Access Verification
+- Basic Linux Security & Access Control
 - Virtual Machine Snapshot Management
 - Technical Documentation
 
@@ -73,6 +88,16 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Practiced removing files and directories using `rm` and `rmdir`, including interactive deletion and recursive removal.
 - Examined and modified Linux file permissions using `ls -l` and `chmod`, and practiced changing file ownership using `chown`.
 
+### Lab 03 – Linux User and Group Administration
+
+- Created and managed Linux user accounts using `adduser`, `usermod`, and `deluser`, while verifying account information, user IDs, group IDs, and home directories.
+- Practiced resetting user passwords, configuring password expiration, and requiring users to change their passwords during their next login using `passwd` and `chage`.
+- Created Linux groups using `groupadd` and managed supplementary group memberships using `usermod` and `gpasswd`.
+- Tested password-based account locking and unlocking using `passwd -l` and `passwd -u`, verifying authentication restrictions and restored access through login attempts.
+- Practiced deleting user accounts with and without removing their home directories, including preserving existing user data before recreating accounts.
+- Granted and removed administrative privileges through the `sudo` group, verifying authorized and unauthorized access to administrative commands.
+- Validated user account configurations, group memberships, password status, and administrative privileges to ensure security changes were applied successfully.
+
 ## Repository Goals
 
 The purpose of this repository is to:
@@ -93,8 +118,9 @@ The purpose of this repository is to:
 
 I plan to continue expanding the environment with projects focused on:
 
-- Linux User & Group Administration
 - Advanced Linux File Ownership & Permissions
+- Group-Based Access Control & Shared Directories
+- Linux Access Control Lists (ACLs)
 - Linux Package Management
 - Linux Networking & Troubleshooting
 - SSH Remote Administration
